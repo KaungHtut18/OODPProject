@@ -12,7 +12,8 @@ public class SqlCommands
         try
         {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            temp = DriverManager.getConnection("jdbc:mysql://localhost:3306/library","root","kaung19");
+            temp = DriverManager.getConnection("jdbc:mysql://localhost:3306/library","root","12345678");
+            //temp = DriverManager.getConnection("jdbc:mysql://sql101.epizy.com:3306/epiz_34127387_library","epiz_34127387","NKbDwsYLgcj");
             Statement statement;
             statement = temp.createStatement();
             ResultSet set;

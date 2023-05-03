@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class LibrarianClient extends SqlCommands
 {
-    private String userName="";
     private Connection connection=null;
 
     public LibrarianClient(String username,String password)
@@ -12,18 +11,7 @@ public class LibrarianClient extends SqlCommands
         this.connection=super.logIn(0,username,password);
     }
 
-    public void addBook(String isbn, String pubDate,String title,String author,String genre)// date must be in 'YYYY-MM-DD' format
-    {
-        try
-        {
-            Statement statement=connection.createStatement();
-            int rows=statement.executeUpdate("insert into books(isbn,publishedDate,bookName,author,genre) values ('"+isbn+"','"+pubDate+"','"+title+"','"+author+"','"+genre+"')");
-            System.out.println("Added successfully"+rows+"row(s) added");
-        }catch (SQLException e)
-        {
-            System.out.println("Error in adding book"+e.getMessage());
-        }
-    }
+
     public void addUser(int userClass, String userName,String passWord)
     {
 

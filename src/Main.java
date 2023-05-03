@@ -12,22 +12,22 @@ public class Main
             "1.Librarian\n" +
             "2.Member");
         boolean isInputOk=true;
-        int choice=0;
+        String input;
         do{
-            try
-            {
-                 choice=scanner.nextInt();
-            }
-            catch(InputMismatchException e)
-            {
-                System.out.println("Please only enter either 1 or 2");
-                scanner.next();
-                isInputOk=false;
-            }
+           input=scanner.next();
+          if(input.equals("1")||input.equals("2"))
+          {
+             break;
+          }
+            else
+          {
+              System.out.println("PLease enter only 1 or 2");
+              isInputOk=false;
+          }
+
+
         }while(!isInputOk);
-
-
-        scanner.nextLine();
+        int choice=Integer.parseInt(input);
 
         if(choice ==1)
         {

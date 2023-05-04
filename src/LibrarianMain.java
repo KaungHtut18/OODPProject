@@ -100,6 +100,7 @@ public class LibrarianMain
                 System.out.println("Please enter the userID of the member returning the book");
                 int id=scanner.nextInt();
                 client.returnBook(id);
+                menu(client);
                 break;
             case 6:
                 System.out.println("Good bye");

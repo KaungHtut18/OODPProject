@@ -31,7 +31,6 @@ public class UserClient extends SqlCommands
             ResultSet bookSet=ps.executeQuery();
             while(bookSet.next())
             {
-                System.out.println("adding");
                 Book book = new Book(bookSet.getString(2),bookSet.getDate(3),bookSet.getString(4),bookSet.getString(5),bookSet.getBoolean(9),bookSet.getString(10));
                 book.setReturnDate(bookSet.getDate("returnDate"));
                 this.borrowedBook.add(book);

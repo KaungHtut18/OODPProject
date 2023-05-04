@@ -33,6 +33,7 @@ public class UserClient extends SqlCommands
             {
                 System.out.println("adding");
                 Book book = new Book(bookSet.getString(2),bookSet.getDate(3),bookSet.getString(4),bookSet.getString(5),bookSet.getBoolean(9),bookSet.getString(10));
+                book.setReturnDate(bookSet.getDate("returnDate"));
                 this.borrowedBook.add(book);
             }
         }catch (SQLException e)
@@ -62,10 +63,10 @@ public class UserClient extends SqlCommands
             {
                 statement=connection.prepareStatement(sql);
                 LocalDate date=LocalDate.now();
-
+                Date returnDate=Date.valueOf(date.plusDays(7));
                 statement.setInt(1,userID);
                 statement.setDate(2, Date.valueOf(date));//current lent date
-                statement.setDate(3, Date.valueOf(date.plusDays(7)));//due date
+                statement.setDate(3, returnDate);//due date
                 statement.setString(4,userName);
                 statement.setString(5,book.getISBN());
                 int i=statement.executeUpdate();
@@ -73,6 +74,7 @@ public class UserClient extends SqlCommands
                 {
                     System.out.println("Borrowed successfully! Please return by: "+date.plusDays(7));
                     System.out.println(book.toString());
+                    book.setReturnDate(returnDate);
                     this.borrowedBook.add(book);
                 }
             }

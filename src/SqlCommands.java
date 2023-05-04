@@ -67,6 +67,7 @@ public class SqlCommands
                 while(set.next())
                 {
                     Book book = new Book(set.getString(2),set.getDate(3),set.getString(4),set.getString(5),set.getBoolean(9),set.getString(10));
+                    book.setReturnDate(set.getDate("returnDate"));
                     bookList.add(book);
                 }
            if(bookList.isEmpty())
@@ -92,6 +93,7 @@ public class SqlCommands
             while(set.next())
             {
                 Book book = new Book(set.getString(2),set.getDate(3),set.getString(4),set.getString(5),set.getBoolean(9),set.getString(10));
+                book.setReturnDate(set.getDate("returnDate"));
                 bookList.add(book);
             }
             printBookList(bookList);

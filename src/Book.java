@@ -7,6 +7,7 @@ public class Book
     private String ISBN="";
     private boolean isBorrowed=false;
     private Date publishedDate=null;
+    private Date returnDate=null;
     private String genre="";
 
     public Book(String isbn,Date publishedDate,String bookName,String author,boolean isBorrowed,String genre)
@@ -30,12 +31,16 @@ public class Book
     @Override
     public String toString()
     {
+        String extra="";
         String status;
-        if(isBorrowed)
-            status="lent";
-        else
+        if(returnDate==null)
             status="availble";
-        return "Title: "+bookName+", Author: "+author+", ISBN: "+ISBN+", Status: "+status+", Genre: "+genre;
+        else
+        {
+            status="lent";
+            extra=", Return date: "+returnDate;
+        }
+        return "Title: "+bookName+", Author: "+author+", ISBN: "+ISBN+", Status: "+status+", Genre: "+genre+extra;
     }
 
     public Boolean getIsBorrowed()
@@ -67,4 +72,5 @@ public class Book
     {
         return genre;
     }
+    public void setReturnDate(Date date){ returnDate=date; }
 }

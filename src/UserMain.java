@@ -37,7 +37,7 @@ public class UserMain
     {
         Scanner s= new Scanner(System.in);
         int i=0;
-        System.out.print("What would you like to do?\n" +
+        System.out.print("===What would you like to do?===\n" +
                 "1.Browse books\n" +
                 "2.Search books\n" +
                 "3.Borrow book\n" +
